@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{CAD24A1F-84A2-2349-DD8B-84577C491002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinMaxSlider", "MinMaxSlider.csproj", "{74C24549-9365-72EE-2513-44D2639F2349}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFileBrowser.Runtime", "SimpleFileBrowser.Runtime.csproj", "{80D95CD6-C82F-8D7D-6E69-1246A60C7C22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinMaxSlider.Editor", "MinMaxSlider.Editor.csproj", "{005D169A-22D1-FF25-5567-8DF667BDABC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAD24A1F-84A2-2349-DD8B-84577C491002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD24A1F-84A2-2349-DD8B-84577C491002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD24A1F-84A2-2349-DD8B-84577C491002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD24A1F-84A2-2349-DD8B-84577C491002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C24549-9365-72EE-2513-44D2639F2349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C24549-9365-72EE-2513-44D2639F2349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C24549-9365-72EE-2513-44D2639F2349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C24549-9365-72EE-2513-44D2639F2349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D95CD6-C82F-8D7D-6E69-1246A60C7C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D95CD6-C82F-8D7D-6E69-1246A60C7C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D95CD6-C82F-8D7D-6E69-1246A60C7C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D95CD6-C82F-8D7D-6E69-1246A60C7C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{005D169A-22D1-FF25-5567-8DF667BDABC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{005D169A-22D1-FF25-5567-8DF667BDABC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{005D169A-22D1-FF25-5567-8DF667BDABC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{005D169A-22D1-FF25-5567-8DF667BDABC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
