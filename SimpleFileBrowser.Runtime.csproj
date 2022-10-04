@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{80D95CD6-C82F-8D7D-6E69-1246A60C7C22}</ProjectGuid>
+    <ProjectGuid>{9DF07FC1-AE57-C92F-31D7-5BEF46BAC6A4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>SimpleFileBrowser.Runtime</AssemblyName>
@@ -56,25 +56,25 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserContextMenu.cs" />
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserRenamedItem.cs" />
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Android\FBPermissionCallbackAndroid.cs" />
     <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\EventSystemHandler.cs" />
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowser.cs" />
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\SimpleRecycledListView\IListViewAdapter.cs" />
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserFileOperationConfirmationPanel.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserCursorHandler.cs" />
     <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\UISkin.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserQuickLink.cs" />
     <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserItem.cs" />
     <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserMovement.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserFileOperationConfirmationPanel.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowser.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\SimpleRecycledListView\IListViewAdapter.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserContextMenu.cs" />
     <Compile Include="Assets\Plugins\SimpleFileBrowser\Android\FBDirectoryReceiveCallbackAndroid.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserRenamedItem.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\SimpleRecycledListView\RecycledListView.cs" />
     <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\SimpleRecycledListView\ListItem.cs" />
     <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserHelpers.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Android\FBCallbackHelper.cs" />
+    <Compile Include="Assets\Plugins\SimpleFileBrowser\Android\FBPermissionCallbackAndroid.cs" />
     <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\NonDrawingGraphic.cs" />
     <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserAccessRestrictedPanel.cs" />
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\SimpleRecycledListView\RecycledListView.cs" />
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserCursorHandler.cs" />
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Android\FBCallbackHelper.cs" />
-    <Compile Include="Assets\Plugins\SimpleFileBrowser\Scripts\FileBrowserQuickLink.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\SimpleFileBrowser\README.txt" />

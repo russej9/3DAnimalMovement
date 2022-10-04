@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CAD24A1F-84A2-2349-DD8B-84577C491002}</ProjectGuid>
+    <ProjectGuid>{90D05AF7-5DE8-BB11-3A43-58F4FB41E3C5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -785,15 +785,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MinMaxSlider.csproj">
-      <Project>{74C24549-9365-72EE-2513-44D2639F2349}</Project>
+      <Project>{76AF46B0-18C4-4E09-95CA-8D7FC7D80554}</Project>
       <Name>MinMaxSlider</Name>
     </ProjectReference>
     <ProjectReference Include="MinMaxSlider.Editor.csproj">
-      <Project>{005D169A-22D1-FF25-5567-8DF667BDABC8}</Project>
+      <Project>{A0B8BB5C-1288-EB08-08DF-F39F10D6DB1F}</Project>
       <Name>MinMaxSlider.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleFileBrowser.Runtime.csproj">
-      <Project>{80D95CD6-C82F-8D7D-6E69-1246A60C7C22}</Project>
+      <Project>{9DF07FC1-AE57-C92F-31D7-5BEF46BAC6A4}</Project>
       <Name>SimpleFileBrowser.Runtime</Name>
     </ProjectReference>
   </ItemGroup>

@@ -8,7 +8,7 @@ public class ColorChange : MonoBehaviour
 {
     private Gradient gradient = new Gradient();
     private float time = 0.0f;
-    public float duration = 5.0f;
+    public float duration = 15.0f;
     public Material pointMatE;
     public GameObject restObject;
     private Toggle restToggle;

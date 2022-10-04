@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{74C24549-9365-72EE-2513-44D2639F2349}</ProjectGuid>
+    <ProjectGuid>{76AF46B0-18C4-4E09-95CA-8D7FC7D80554}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>MinMaxSlider</AssemblyName>
