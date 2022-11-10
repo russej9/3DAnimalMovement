@@ -62,9 +62,4 @@ public class ColorChange : MonoBehaviour
     {
         speed = unitSpeed;
     }
-
-    /*private void OnDisable()
-    {
-        gameObject.GetComponent<Renderer>().material = pointMatD;
-    }*/
 }

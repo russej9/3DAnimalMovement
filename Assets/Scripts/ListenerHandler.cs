@@ -41,7 +41,6 @@ public class ListenerHandler : MonoBehaviour
         loadButton = loadButtonObject.GetComponent<Button>();
 
         //this adds all the listeners
-        //tb.onValueChanged.AddListener(delegate { UpdateMapTimeBounds(); });
         minText.onEndEdit.AddListener(delegate { UpdateMapInput(); });
         maxText.onEndEdit.AddListener(delegate { UpdateMapInput(); });
         pr.onValueChanged.AddListener(delegate { UpdateProgress(pr.value); });
