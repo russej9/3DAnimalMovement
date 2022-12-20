@@ -26,14 +26,14 @@ public class CameraControls : MonoBehaviour
         {
             transform.Translate(new Vector3(0, 0, speed * Time.unscaledDeltaTime), Space.World);
         }
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1))    //use right click to change camera
         {
             //transform.Rotate(Input.GetAxis("Mouse X") * speed, Input.GetAxis("Mouse Y") * speed, 0, Space.World);
             transform.Rotate(Vector3.up, Input.GetAxis("Mouse X"), Space.World);
             transform.Rotate(Vector3.right, Input.GetAxis("Mouse Y"));
         }
 
-        gameObject.transform.Translate(0, Input.GetAxis("Mouse ScrollWheel") * -1.5f, 0, Space.World); //mouse zooming
+        gameObject.transform.Translate(0, Input.GetAxis("Mouse ScrollWheel") * -1.5f, 0, Space.World); //mouse zooming and scaling of animal
         animal.transform.localScale = new Vector3(animal.transform.localScale.x - Input.GetAxis("Mouse ScrollWheel") * 0.03f, animal.transform.localScale.y - Input.GetAxis("Mouse ScrollWheel") * 0.03f, animal.transform.localScale.z - Input.GetAxis("Mouse ScrollWheel") * 0.03f);
 
     }

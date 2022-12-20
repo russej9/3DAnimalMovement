@@ -40,7 +40,7 @@ public class ListenerHandler : MonoBehaviour
         heightToggle = heightToggleObject.GetComponent<Toggle>();
         loadButton = loadButtonObject.GetComponent<Button>();
 
-        //this adds all the listeners
+        //this adds all the listeners and in the functions that were added it calls the corresponding function in the movement script
         minText.onEndEdit.AddListener(delegate { UpdateMapInput(); });
         maxText.onEndEdit.AddListener(delegate { UpdateMapInput(); });
         pr.onValueChanged.AddListener(delegate { UpdateProgress(pr.value); });
@@ -106,7 +106,7 @@ public class ListenerHandler : MonoBehaviour
         StartCoroutine(ShowLoadData());
     }
 
-    IEnumerator ShowLoadData()
+    IEnumerator ShowLoadData()  //this is for the file browser, I looked at their documentation to do it
     {
         yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.Files, false, null, null, "Load Data Set", "Select");
 

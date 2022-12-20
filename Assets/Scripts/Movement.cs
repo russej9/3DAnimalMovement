@@ -24,8 +24,6 @@ public class Movement : MonoBehaviour
     public GameObject curTime;
     public Material pointMat;
     public Material colorChangeMat;
-    private float HeightMin;
-    private float HeightMax;
     public GameObject restObject;
     public GameObject speedLimit;
     private float speedMin;
@@ -38,24 +36,25 @@ public class Movement : MonoBehaviour
         speedMin = 100;
         speedMax = 0;
 
-        targets = new AnimalData[1];
+        targets = new AnimalData[1];    //makes an initial data point
 
     }
 
     // Update is called once per frame
+    //FixedUpdate is used for the movement of the animal in the animation
     void FixedUpdate()
     {
-        if (targets.Length < 2) return;
-        float step = speed * Time.deltaTime;
+        if (targets.Length < 2) return; //this means no data has been loaded yet
+        float step = speed * Time.deltaTime;    //how far it moves per frame
         if (count < final) // checks to see if done
         {
             if (gameObject.transform.position == targets[count].position) //changes target to next after reaching coordinates and drops marker at coordinate
             {
                 GameObject tar = GameObject.Find("Point" + count.ToString());
-                tar.GetComponent<ColorChange>().enabled = true;        //adds script that handles the gradual color change from green to red
-                progressSlider.GetComponent<Slider>().value = count;
+                tar.GetComponent<ColorChange>().enabled = true;        //enables script that handles the gradual color change from green to red
+                progressSlider.GetComponent<Slider>().value = count;    //this just changes the on screen progress slider
                 count++;
-                speed = (targets[count].speed - speedMin) / (speedMax - speedMin) * 0.5f + 0.05f;
+                speed = (targets[count].speed - speedMin) / (speedMax - speedMin) * 0.5f + 0.05f;   //this ensure it is at least a speed on screen and is not more than a certain speed on screen
                 if (count >= total) return;
             }
             transform.position = Vector3.MoveTowards(transform.position, targets[count].position, step); //gradually moves from point to point
@@ -63,16 +62,16 @@ public class Movement : MonoBehaviour
 
     }
 
-    //loads the data set instead of inside of start
+    //loads the data set instead of inside of start, called from the ListenerHandler Script
     public void LoadData(string path)
     {
         targets = new AnimalData[1];
-        foreach (Transform child in Map.transform)
+        foreach (Transform child in Map.transform)  //removes previously loaded data's points
         {
             Destroy(child.gameObject);
         }
 
-        GameObject pointProto = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        GameObject pointProto = GameObject.CreatePrimitive(PrimitiveType.Sphere);   //creates the prototype point that will be copied for all the data points
         pointProto.GetComponent<Renderer>().material = pointMat;
         pointProto.AddComponent<ColorChange>().enabled = false;
         pointProto.GetComponent<ColorChange>().pointMatE = colorChangeMat;
@@ -88,7 +87,7 @@ public class Movement : MonoBehaviour
         int height = -1;
         int speed = -1;
         AnimalData[] tempList = new AnimalData[csvFile.Length];
-        for (int i = 0; i < headers.Length; i++) //finds the desired headers
+        for (int i = 0; i < headers.Length; i++) //finds the desired headers, case and name sensitive so if names change this will no longer work
         {
             if (headers[i] == "northing") north = i;
             else if (headers[i] == "easting") east = i;
@@ -96,34 +95,15 @@ public class Movement : MonoBehaviour
             else if (headers[i] == "height-above-ellipsoid") height = i;
             else if (headers[i] == "ground-speed") speed = i;
         }
-        if (north < 0 || east < 0 || timestamp < 0 || height < 0) Debug.LogError("Header not found");
+        if (north < 0 || east < 0 || timestamp < 0 || height < 0 || speed < 0) Debug.LogError("Header not found");  //this makes sure all the headers are found
         tempList[0].position = Vector3.zero;        //done for sizing reasons
         tempList[0].time = System.DateTime.Now;
 
         Debug.Log(height);
 
 
-        float heightMin = 0;
-        float heightMax = 0;
-        for (int i = 1; i < csvFile.Length; i++)
-        {
-            line = csvFile[i].Split(',');
-            if (line[height] != "")
-            {
-                //Debug.Log(line[height]);
-                if (heightMin == 0 && heightMax == 0)
-                {
-                    heightMin = float.Parse(line[height]);
-                    heightMax = float.Parse(line[height]);
-                }
-                if (float.Parse(line[height]) > heightMax) heightMax = float.Parse(line[height]);
-                if (float.Parse(line[height]) < heightMin) heightMin = float.Parse(line[height]);
-            }
-        }
-        HeightMax = heightMax;
-        HeightMin = heightMin;
 
-        for (int i = 1; i < csvFile.Length; i++) //goes through the UTM coordinates
+        for (int i = 1; i < csvFile.Length; i++) //goes through the UTM coordinates, time, and speed
         {
             line = csvFile[i].Split(',');
             //Debug.Log(line[timestamp]);
@@ -167,7 +147,7 @@ public class Movement : MonoBehaviour
             duplicate.name = "Point" + i.ToString();        //gives a unique identifier to each point for differentiation
 
             duplicate.GetComponent<ColorChange>().SetSpeed(targets[i].speed);
-            duplicate.GetComponent<ColorChange>().speedLimit = speedLimit;
+            duplicate.GetComponent<ColorChange>().speedLimit = speedLimit;      //these are used for the toggles
             duplicate.GetComponent<ColorChange>().restObject = restObject;
         }
         Destroy(pointProto);
@@ -199,7 +179,6 @@ public class Movement : MonoBehaviour
         zMax = Map.transform.position.z + extents.z;
         xRange = xMax - xMin;
         zRange = zMax - zMin;
-        hRange = HeightMax - HeightMin;
 
         float sUTMx = 624079.8465020715f;        //coordinates of the image
         float eUTMx = 629752.8465020715f;
@@ -275,7 +254,7 @@ public class Movement : MonoBehaviour
                 end = i;
                 break;
             }
-            if(i > 0)
+            if(i > 0)   //this covers if that exact time does not exist in the data points, this assumes that the data is in order
             {
                 if (System.DateTime.Compare(targets[i].time, System.DateTime.ParseExact(startS, "M/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture)) > 0 && System.DateTime.Compare(targets[i-1].time, System.DateTime.ParseExact(startS, "M/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture)) < 0)
                 {
@@ -310,17 +289,18 @@ public class Movement : MonoBehaviour
         UpdateVisTime(start, end);
     }
 
-    public void ProgressUpdate(float p)
+    public void ProgressUpdate(float p) //this updates the text that is under the sliders
     {
         curTime.GetComponent<TextMeshProUGUI>().text = targets[Mathf.RoundToInt(p)].time.ToString();
     }
 
+    //this changes the height of the point based on the toggle
     public void HeightAdjust(bool ex)
     {
         GameObject tar;
-        if (ex)
+        if (ex)     //checks toggle
         {
-            for (int i = 0; i < total; i++)
+            for (int i = 0; i < total; i++) //iterates through all points so that if the bounds are changed it does not have to make sure that every point matches the toggle
             {
                 tar = GameObject.Find("Point" + i.ToString());
                 tar.transform.position = new Vector3(tar.transform.position.x, tar.transform.position.y * 50, tar.transform.position.z);
@@ -330,7 +310,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < total; i++)
+            for (int i = 0; i < total; i++) //iterates through all points so that if the bounds are changed it does not have to make sure that every point matches the toggle
             {
                 tar = GameObject.Find("Point" + i.ToString());
                 tar.transform.position = new Vector3(tar.transform.position.x, tar.transform.position.y / 50, tar.transform.position.z);

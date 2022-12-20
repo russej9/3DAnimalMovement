@@ -23,9 +23,9 @@ public class ColorChange : MonoBehaviour
 
         GradientColorKey[] colorKey = new GradientColorKey[2];  //sets color gradient for transition
         GradientAlphaKey[] alphaKey = new GradientAlphaKey[2];
-        colorKey[0].color = Color.green; //new Color(Color.green.r, Color.green.g, Color.green.b, 1f);
+        colorKey[0].color = Color.green;
         colorKey[0].time = 0.0f;
-        colorKey[1].color = Color.red; //new Color(Color.red.r, Color.red.g, Color.red.b, 1f);
+        colorKey[1].color = Color.red;
         colorKey[1].time = 1.0f;
 
         alphaKey[0].alpha = 1.0f;
@@ -37,7 +37,7 @@ public class ColorChange : MonoBehaviour
     }
     void OnEnable()
     {
-        gameObject.GetComponent<Renderer>().material = pointMatE;
+        gameObject.GetComponent<Renderer>().material = pointMatE;   //sets the point material to the more transparent material
         time = 0f;
     }
 
@@ -46,7 +46,7 @@ public class ColorChange : MonoBehaviour
     {
         float value = Mathf.Lerp(0f, 1f, time);
         time += Time.deltaTime / duration;
-        if (!restToggle.isOn)
+        if (!restToggle.isOn)   //checks if the rest toggle is on since that changes coloring
         {
             Color color = gradient.Evaluate(value);     //finds the appropriate color at a set time
             gameObject.GetComponent<Renderer>().material.color = color;
